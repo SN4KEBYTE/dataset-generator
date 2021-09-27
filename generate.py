@@ -118,6 +118,10 @@ if __name__ == '__main__':
     u8k_test_filenames = u8k.get_test_filenames()
 
     train_out_dir = out_dir / 'train'
+    train_out_dir.mkdir(
+        exist_ok=True,
+        parents=True,
+    )
 
     print('Applying noise to train data...')
     _create_set(
@@ -129,6 +133,10 @@ if __name__ == '__main__':
     )
 
     val_out_dir = out_dir / 'val'
+    val_out_dir.mkdir(
+        exist_ok=True,
+        parents=True,
+    )
 
     print('Applying noise to val data...')
     _create_set(
@@ -140,6 +148,10 @@ if __name__ == '__main__':
     )
 
     test_out_dir = out_dir / 'test'
+    test_out_dir.mkdir(
+        exist_ok=True,
+        parents=True,
+    )
 
     print('Applying noise to test data...')
     _create_set(

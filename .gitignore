@@ -1,3 +1,14 @@
+# Datasets
+u8k/
+mcv/
+out/
+
+# PyCharm
+.idea/
+
+# MacOS stuff
+.DS_store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

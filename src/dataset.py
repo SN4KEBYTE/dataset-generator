@@ -12,7 +12,10 @@ import soundfile as sf
 from ._audio import add_noise, read_audio
 from ._const import NP_RANDOM_SEED
 
-warnings.filterwarnings('ignore', category=UserWarning)
+warnings.filterwarnings(
+    'ignore',
+    category=UserWarning,
+)
 
 np.random.seed(NP_RANDOM_SEED)
 
@@ -81,7 +84,7 @@ class Dataset:
             )
 
             sf.write(
-                self._out_path / Path(clean_file).name,
+                self._out_path / (Path(clean_file).stem + '.wav'),
                 noised,
                 self._sample_rate,
                 format='WAV',

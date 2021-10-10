@@ -117,28 +117,13 @@ if __name__ == '__main__':
     u8k_train_filenames, u8k_val_filenames = u8k.get_train_val_filenames()
     u8k_test_filenames = u8k.get_test_filenames()
 
-    train_out_dir = out_dir / 'train'
-    train_out_dir.mkdir(
-        exist_ok=True,
-        parents=True,
-    )
-
-    print('Applying noise to train data...')
-    _create_set(
-        train_out_dir,
-        mcv_train_filenames,
-        u8k_train_filenames,
-        sample_rate=sample_rate,
-        cores=cores,
-    )
-
+    print('Applying noise to val data...')
     val_out_dir = out_dir / 'val'
     val_out_dir.mkdir(
         exist_ok=True,
         parents=True,
     )
 
-    print('Applying noise to val data...')
     _create_set(
         val_out_dir,
         mcv_val_filenames,
@@ -147,17 +132,32 @@ if __name__ == '__main__':
         cores=cores,
     )
 
+    print('Applying noise to test data...')
     test_out_dir = out_dir / 'test'
     test_out_dir.mkdir(
         exist_ok=True,
         parents=True,
     )
 
-    print('Applying noise to test data...')
     _create_set(
         test_out_dir,
         mcv_test_filenames,
         u8k_test_filenames,
+        sample_rate=sample_rate,
+        cores=cores,
+    )
+
+    print('Applying noise to train data...')
+    train_out_dir = out_dir / 'train'
+    train_out_dir.mkdir(
+        exist_ok=True,
+        parents=True,
+    )
+
+    _create_set(
+        train_out_dir,
+        mcv_train_filenames,
+        u8k_train_filenames,
         sample_rate=sample_rate,
         cores=cores,
     )
